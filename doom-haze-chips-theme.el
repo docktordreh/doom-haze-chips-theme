@@ -99,26 +99,26 @@
    (modeline-fg     fg-alt)
    (modeline-fg-alt fg)
 
-   (comments       dark-teal)
-   (doc-comments   comments)
+   (comments        dark-teal)
+   (doc-comments    comments)
    ;; variables show up everywhere, nn to highlight them too much
-   (variables      fg)
+   (variables       fg)
    ;; methods should be clearly visible but not screaming
-   (methods        dark-blue)
-   (builtin        dark-magenta)
-   (functions      dark-blue)
-   (constants      dark-violet)
-   (strings        yellow)
-   (keywords       magenta)
-   (type           dark-blue)
-   (numbers        orange)
-   (operators      teal)
-   (success        green)
-   (error          red)
-   (warning        yellow)
-   (vc-added       light-green)
-   (vc-modified    blue)
-   (vc-deleted     light-red))
+   (methods         dark-blue)
+   (builtin         dark-magenta)
+   (functions       dark-blue)
+   (constants       dark-violet)
+   (strings         yellow)
+   (keywords        magenta)
+   (type            dark-blue)
+   (numbers         orange)
+   (operators       teal)
+   (success         green)
+   (error           red)
+   (warning         yellow)
+   (vc-added        light-green)
+   (vc-modified     blue)
+   (vc-deleted      light-red))
 
   ;; ------ Face Overrides --------------------------------------------------
 
@@ -183,14 +183,14 @@
    (header-line :background modeline-bg-alt :foreground modeline-fg)
 
 
-
    ;; ---- Tonsky-style background chips -----------------------------------
    (font-lock-comment-face
     :foreground fg
     :background (doom-blend comments bg 0.2))
    (font-lock-doc-face
     :foreground fg
-    :background (doom-blend doc-comments bg 0.25))
+    :background (doom-blend doc-comments bg 0.25)
+    :extend t)
 
    (font-lock-string-face
     :foreground fg
@@ -198,10 +198,61 @@
 
    (font-lock-keyword-face
     :foreground fg
+    :weight 'bold
     :background (doom-blend keywords bg 0.3))
+   
+   ;; Indent bars ------------------------------------------------------
+   ;; check if needed
+   (indent-bars-face :background nil :inherit 'default)
+
+   ;; ---- Terraform --------------------------------------------------------
+   (terraform-builtin-face
+    :foreground keywords
+    :weight 'bold)
+
+   (terraform-resource-type-face
+    :foreground type
+    :weight 'normal)
+
+   (terraform-resource-name-face
+    :foreground dark-blue
+    :background (doom-blend light-blue bg 0.95)
+    :weight 'normal)
+
+   (terraform-variable-name-face
+    :foreground base1
+    :weight 'bold)
+
+   (hcl-string-interpolation-face
+    :foreground fg
+    :background (doom-blend strings bg 0.40)
+    :weight 'bold)
+
+   ;; ---- Markdown ---------------------------------------------------------
+   (markdown-code-face
+    :foreground base0
+    :weight bold)
+
+
+   ;; ---- Magit diffs ------------------------------------------------------
+   (magit-diff-added-highlight
+    :foreground (doom-blend green fg 0.8)
+    :background (doom-blend green bg 0.18)
+    :weight 'bold)
+   (magit-diff-removed-highlight
+    :foreground (doom-blend red fg 0.78)
+    :background (doom-blend red bg 0.16)
+    :weight 'bold)
+   (magit-branch-local
+    :foreground (doom-blend green fg 0.75)
+    :weight 'medium)
+   (magit-branch-remote
+    :foreground (doom-blend cyan fg 0.75)
+    :slant 'italic)
 
    ;; ---- LaTeX / AUCTeX sectioning (chip-style) ----------------------------
-
+   (TeX-fold-unfolded-face
+    :background bg)
    (font-latex-sectioning-1-face
     :foreground fg
     :background (doom-blend type bg 0.35)
@@ -219,18 +270,23 @@
 
    (font-latex-sectioning-4-face
     :foreground fg
-    :background (doom-blend strings bg 0.20)
+    :background (doom-blend strings bg 0.40)
     :weight 'normal)
 
    (font-latex-sectioning-5-face
     :foreground fg
-    :background (doom-blend doc-comments bg 0.15)
+    :background (doom-blend doc-comments bg 0.3)
     :weight 'normal)
 
    ;; Labels / refs
    (font-latex-label-face :foreground magenta)
    (font-latex-reference-face :foreground blue)
 
+   ;;---- C/C++ --------------------------------------------------------
+   (font-lock-preprocessor-face
+    :foreground base3
+    :weight 'bold)
+   
    ;; ---- UI Elements ------------------------------------------------------
    (mode-line
     :background modeline-bg :foreground modeline-fg
@@ -254,3 +310,7 @@
    (vterm-color-default :background bg :foreground fg)))
 
 ;;; doom-haze-chips-theme.el ends here
+;; start rainbow-mode for this file
+;; Local Variables:
+;; eval: (rainbow-mode 1)
+;; End:
