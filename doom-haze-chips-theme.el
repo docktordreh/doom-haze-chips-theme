@@ -186,10 +186,12 @@
    ;; ---- Tonsky-style background chips -----------------------------------
    (font-lock-comment-face
     :foreground fg
+    :box `(:line-width -1 :color ,(doom-blend (doom-darken comments 0.25) bg 0.4))
     :background (doom-blend comments bg 0.2))
    (font-lock-doc-face
     :foreground fg
     :background (doom-blend doc-comments bg 0.25)
+    ;;:box `(:line-width -1 :color ,(doom-blend (doom-darken doc-comments 0.25) bg 0.4))
     :extend t)
 
    (font-lock-string-face
@@ -200,7 +202,8 @@
     :foreground fg
     :weight 'bold
     :background (doom-blend keywords bg 0.3))
-   
+
+
    ;; Indent bars ------------------------------------------------------
    ;; check if needed
    (indent-bars-face :background nil :inherit 'default)
@@ -249,6 +252,20 @@
    (magit-branch-remote
     :foreground (doom-blend cyan fg 0.75)
     :slant 'italic)
+
+   ;; ---- Web-mode --------------------------------------------------------
+   (web-mode-html-attr-value-face
+    :foreground fg
+    :background (doom-blend strings bg 0.35))
+
+   ;; ---- LSP 
+   (lsp-face-highlight-read
+    :background (doom-darken bg 0.2))
+
+   (lsp-flycheck-info-unnecessary-category
+    :background comments
+    :foreground fg)
+
 
    ;; ---- LaTeX / AUCTeX sectioning (chip-style) ----------------------------
    (TeX-fold-unfolded-face
