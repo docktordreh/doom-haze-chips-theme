@@ -234,7 +234,7 @@
    ;; ---- Markdown ---------------------------------------------------------
    (markdown-code-face
     :foreground base0
-    :weight bold)
+    :weight 'bold)
 
 
    ;; ---- Magit diffs ------------------------------------------------------
