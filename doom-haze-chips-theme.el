@@ -52,13 +52,13 @@
 
    ;; ---- Yellow --------------------------------------------------
    (dark-yellow  '("#b8924b" "#b8924b" "yellow"))
-   (yellow       '("#d7ae63" "#d7ae63" "brightyellow"))
-   (light-yellow '("#eed49c" "#eed49c" "brightyellow"))
+   (yellow       '("#c9971e" "#c9971e" "brightyellow"))
+   ( light-yellow '("#e6c77a" "#e6c77a" "brightyellow"))
 
    ;; ---- Green ---------------------------------------------------
    (dark-green  '("#6f9e62" "#6f9e62" "green"))
    (green       '("#8fbf7f" "#8fbf7f" "brightgreen"))
-   (light-green '("#b6e1aa" "#b6e1aa" "brightgreen"))
+   (light-green '("#9fd08f" "#9fd08f" "brightgreen"))
 
    ;; ---- Teal ----------------------------------------------------
    (dark-teal  '("#4ea392" "#4ea392" "cyan"))
@@ -68,12 +68,12 @@
    ;; ---- Blue ----------------------------------------------------
    (dark-blue   '("#4e61b2" "#4e61b2" "blue"))
    (blue        '("#7a94df" "#7a94df" "brightblue"))
-   (light-blue  '("#b1c2f3" "#b1c2f3" "brightblue"))
+   (light-blue  '("#9fb3ea" "#9fb3ea" "brightblue"))
 
    ;; ---- Magenta ------------------------------------------------
    (dark-magenta  '("#8467bb" "#8467bb" "magenta"))
    (magenta       '("#a588e8" "#a588e8" "brightmagenta"))
-   (light-magenta '("#d0c0f7" "#d0c0f7" "brightmagenta"))
+   (light-magenta '("#b9a6f0" "#b9a6f0" "brightmagenta"))
 
    ;; ---- Violet / Pink ------------------------------------------
    (dark-violet  '("#a46eb1" "#a46eb1" "magenta"))
@@ -83,7 +83,7 @@
    ;; ---- Cyan ---------------------------------------------------
    (dark-cyan  '("#5fb3c6" "#5fb3c6" "cyan"))
    (cyan       '("#89d5e5" "#89d5e5" "brightcyan"))
-   (light-cyan '("#bdeef3" "#bdeef3" "brightcyan"))
+   (light-cyan '("#9fdfe8" "#9fdfe8" "brightcyan"))
 
    ;; UI elements
    (region     (doom-darken bg 0.12))
@@ -186,7 +186,7 @@
    ;; ---- Tonsky-style background chips -----------------------------------
    (font-lock-comment-face
     :foreground fg
-    :box `(:line-width -1 :color ,(doom-blend (doom-darken comments 0.25) bg 0.4))
+    :box `(:line-width -1 :color ,(doom-blend (doom-lighten comments 0.25) bg 0.4))
     :background (doom-blend comments bg 0.2))
    (font-lock-doc-face
     :foreground fg
@@ -196,7 +196,7 @@
 
    (font-lock-string-face
     :foreground fg
-    :background (doom-blend strings bg 0.37))
+    :background (doom-blend (doom-lighten strings 0.2) bg 0.37))
 
    (font-lock-keyword-face
     :foreground fg
