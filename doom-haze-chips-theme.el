@@ -203,6 +203,11 @@
     :weight 'bold
     :background (doom-blend keywords bg 0.3))
 
+   ;; --- org mode --------------------------------------------------------
+   (org-block
+    :background (doom-blend light-magenta bg 0.4)
+    :foreground fg)
+
 
    ;; Indent bars ------------------------------------------------------
    ;; check if needed
