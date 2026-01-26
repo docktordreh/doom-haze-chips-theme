@@ -17,7 +17,7 @@
 (def-doom-theme doom-haze-chips
     "A light-blue variant of Moonlight with Tonsky-style background highlights."
 
-  ;; ------ Palette ---------------------------------------------------------
+  ;;; ------ Palette ---------------------------------------------------------
   (
    ;; Core backgrounds
    (bg      '("#bfcdf1" "#bfcdf1" "white"))
@@ -120,7 +120,7 @@
    (vc-modified     blue)
    (vc-deleted      light-red))
 
-  ;; ------ Face Overrides --------------------------------------------------
+  ;;; ------ Face Overrides --------------------------------------------------
 
   (
    ;; ---- Core -------------------------------------------------------------
@@ -199,14 +199,201 @@
     :background (doom-blend (doom-lighten strings 0.2) bg 0.37))
 
    (font-lock-keyword-face
-    :foreground fg
-    :weight 'bold
-    :background (doom-blend keywords bg 0.3))
-
-   ;; --- org mode --------------------------------------------------------
-   (org-block
-    :background (doom-blend light-magenta bg 0.4)
     :foreground fg)
+;;; --- org mode -------------------------------------------------------
+   (org-document-title
+    :foreground fg
+    :weight 'extra-bold
+    :height 1.25)
+
+   (org-ellipsis
+    :foreground base4)
+
+   ;; Headings: color-only hierarchy (no background)
+   (org-level-1
+    :foreground dark-blue
+    :weight 'bold
+    :extend t)
+
+   (org-level-2
+    :foreground magenta
+    :weight 'semi-bold
+    :extend t)
+
+   (org-level-3
+    :foreground teal
+    :weight 'semi-bold
+    :extend t)
+
+   (org-level-4
+    :foreground orange
+    :weight 'normal
+    :extend t)
+
+   (org-level-5
+    :foreground comments
+    :weight 'normal
+    :extend t)
+
+   (org-level-6
+    :foreground dark-violet
+    :weight 'normal
+    :extend nil)
+
+   (org-level-7
+    :foreground base2
+    :weight 'normal)
+
+   (org-level-8
+    :foreground base3
+    :weight 'normal)
+   
+   (org-special-keyword
+    :background bg
+    :weight 'normal
+    :foreground fg)
+
+   (org-meta-line
+    :foreground base3)
+
+   
+   (org-block
+    :background (doom-blend light-magenta bg 0.4))
+   
+
+   (org-block-begin-line
+    :underline '(:position t)
+    :weight 'normal
+    :height 0.9)
+   (org-block-end-line
+    :overline t
+    :weight 'normal
+    :height 0.9)
+   
+   (org-code
+    :foreground fg
+    :background (doom-blend light-magenta bg 0.4)
+    :weight 'normal)
+   
+   (org-verbatim
+    :foreground fg
+    :background (doom-blend comments bg 0.2)
+    :weight 'normal)
+
+   (org-quote
+    :foreground fg
+    :background (doom-blend doc-comments bg 0.25)
+    :extend t
+    :slant 'italic)
+
+   ;; Links / dates / tags
+   (org-link
+    :foreground dark-blue
+    :underline t
+    :weight 'semi-bold)
+
+   (org-date
+    :foreground fg
+    :background nil
+    :weight 'normal)
+
+   (org-date-active
+    :foreground fg
+    :background nil
+    :weight 'normal)
+
+   (org-date-inactive
+    :foreground fg
+    :background nil
+    :weight 'normal)
+
+
+   (org-modern-date
+    :foreground fg
+    :background nil
+    :weight 'normal)
+
+   (org-modern-date-active
+    :foreground fg
+    :background nil
+    :weight 'normal)
+
+   (org-modern-date-inactive
+    :foreground fg
+    :background nil
+    :weight 'normal)
+
+   (org-todo
+    :foreground fg
+    :background (doom-blend red bg 0.4)
+    :box `(:line-width -1 :color ,(doom-blend (doom-lighten error 0.25) bg 0.4))
+    :weight 'bold)
+   
+
+   (org-done
+    :foreground fg
+    :background (doom-blend green bg 0.4)
+    :box `(:line-width -1 :color ,(doom-blend (doom-lighten success 0.25) bg 0.4))
+    :weight 'bold)
+   (org-modern-todo
+    :foreground fg
+    :background (doom-blend red bg 0.4)
+    :box `(:line-width -1 :color ,(doom-blend (doom-lighten error 0.25) bg 0.4))
+    :weight 'bold)
+   
+   (org-tag
+    :foreground fg
+    :background (doom-blend doc-comments bg 0.25)
+    :box `(:line-width -1 :color ,(doom-blend (doom-darken doc-comments 0.25) bg 0.4)))
+   (org-modern-tag
+    :foreground fg
+    :background (doom-blend doc-comments bg 0.25)
+    :box `(:line-width -1 :color ,(doom-blend (doom-darken doc-comments 0.25) bg 0.4)))
+   
+
+   (org-modern-done
+    :foreground fg
+    :background (doom-blend green bg 0.4)
+    :box `(:line-width -1 :color ,(doom-blend (doom-lighten success 0.25) bg 0.4))
+    :weight 'bold)
+
+   (org-headline-done
+    :foreground base4
+    :weight 'normal)
+
+   (org-checkbox
+    :foreground fg
+    :background (doom-blend base6 bg 0.3)
+    :weight 'semi-bold)
+
+   (org-checkbox-statistics-todo
+    :foreground fg
+    :background (doom-blend light-red bg 0.35)
+    :weight 'bold)
+
+   (org-checkbox-statistics-done
+    :foreground fg
+    :background (doom-blend light-green bg 0.35)
+    :weight 'bold)
+
+   (org-priority
+    :foreground fg
+    :background (doom-blend red bg 0.25)
+    :weight 'bold)
+
+   (org-formula
+    :background (doom-blend light-orange bg 0.4)
+    :foreground fg)
+
+   (org-todo
+    :background (doom-blend light-red bg 0.4)
+    :foreground fg
+    :weight 'bold)
+
+   (org-agenda-date-today
+    :background (doom-blend light-blue bg 0.4)
+    :foreground fg
+    :weight 'bold)
 
 
    ;; Indent bars ------------------------------------------------------
@@ -263,7 +450,7 @@
     :foreground fg
     :background (doom-blend strings bg 0.35))
 
-   ;; ---- LSP 
+   ;; ---- LSP
    (lsp-face-highlight-read
     :background (doom-darken bg 0.2))
 
@@ -330,6 +517,16 @@
    (term        :background bg :foreground fg)
    (vterm       :background bg :foreground fg)
    (vterm-color-default :background bg :foreground fg)))
+
+(add-hook! 'prog-mode-hook
+  (let ((kw (doom-color 'keywords))
+        (bg (doom-color 'bg)))
+    (face-remap-add-relative
+     'font-lock-keyword-face
+     :background (doom-blend kw bg 0.3))))
+
+
+
 
 ;;; doom-haze-chips-theme.el ends here
 ;; start rainbow-mode for this file
