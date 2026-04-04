@@ -7,6 +7,10 @@
 ;; A light-blue reinterpretation of Moonlight with background-chip syntax.
 ;;
 ;;; Code:
+;;;###autoload
+(when load-file-name
+  (add-to-list 'custom-theme-load-path
+               (file-name-directory load-file-name)))
 
 (require 'doom-themes)
 
@@ -343,10 +347,12 @@
    
    (org-tag
     :foreground fg
+    :height 1
     :background (doom-blend doc-comments bg 0.25)
     :box `(:line-width -1 :color ,(doom-blend (doom-darken doc-comments 0.25) bg 0.4)))
    (org-modern-tag
     :foreground fg
+    :height 1
     :background (doom-blend doc-comments bg 0.25)
     :box `(:line-width -1 :color ,(doom-blend (doom-darken doc-comments 0.25) bg 0.4)))
    
