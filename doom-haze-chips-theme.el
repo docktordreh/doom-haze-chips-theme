@@ -186,6 +186,7 @@
    (mode-line-buffer-id :foreground modeline-fg :weight 'bold)
    (header-line :background modeline-bg-alt :foreground modeline-fg)
 
+   (tooltip :stipple nil)
 
    ;; ---- Tonsky-style background chips -----------------------------------
    (font-lock-comment-face
