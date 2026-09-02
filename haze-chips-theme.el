@@ -1,4 +1,4 @@
-;;; doom-haze-chips-theme.el --- Light blue Moonlight variant -*- lexical-binding: t; no-byte-compile: t; -*-
+;;; haze-chips-theme.el --- Light blue Moonlight variant -*- lexical-binding: t; no-byte-compile: t; -*-
 ;;
 ;; Author: Valentin Lechner
 ;; Inspired by doom-moonlight + Tonsky Alabaster BG
@@ -14,11 +14,11 @@
 
 (require 'doom-themes)
 
-(defgroup doom-haze-chips-theme nil
-  "Options for the `doom-haze-chips' theme."
+(defgroup haze-chips-theme nil
+  "Options for the `haze-chips' theme."
   :group 'doom-themes)
 
-(def-doom-theme doom-haze-chips
+(def-doom-theme haze-chips
     "A light-blue variant of Moonlight with Tonsky-style background highlights."
 
   ;;; ------ Palette ---------------------------------------------------------
@@ -535,7 +535,7 @@
 
 
 
-;;; doom-haze-chips-theme.el ends here
+;;; haze-chips-theme.el ends here
 ;; start rainbow-mode for this file
 ;; Local Variables:
 ;; eval: (rainbow-mode 1)
